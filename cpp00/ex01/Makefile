@@ -1,6 +1,6 @@
 NAME = PhoneBook
 
-src = PhoneBook.cpp main.cpp
+src = PhoneBook.cpp main.cpp utils.cpp
 
 flags = -Wall -Wextra -Werror -std=c++98
 

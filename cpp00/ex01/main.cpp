@@ -1,31 +1,31 @@
-#include<iostream>
-#include <string>
-
+#include "Phonebook.hpp"
 int main()
 {
-    std::string input;
-    std::cout << "ENTER--->>(ADD,SEARCH,EXIT)" << std::endl;
+    PhoneBook myPhoneBook;
+    int i=0;
+    myPhoneBook.setSize(0);
     while(1)
     {
-        std::getline(std::cin, input);
-        if(input == "ADD"){
-            std::cout << input << std::endl;
-            while(1)
-            {
-             std::getline(std::cin, input);
-            std::cout << input << std::endl;
-
-            }
+        string input;cout << "Please type a CMD: ADD SEARCH EXIT: ";
+        getline(std::cin, input);
+        if (std::cin.eof() || std::cin.fail())
+        {
+            std::clearerr(stdin);
+            std::cin.clear();
+            std::cout << std::endl;
         }
-        if(input == "SEARCH"){
-            std::cout << input << std::endl;
-            return(0);
+        if (input == "ADD")
+        {
+            myPhoneBook.add(i);
+            i++;
+            if (i == 8)
+                i=0;
         }
-        if(input == "EXIT"){
-            std::cout << input << std::endl;
-            return(0);
-        }
+        else if (input == "SEARCH")
+            myPhoneBook.search();
+        else if (input == "EXIT")
+            myPhoneBook.exitFun();
         else
-            std::cout << "ENTER--->>(ADD,SEARCH,EXIT)" << std::endl;
+            continue;
     }
 }
